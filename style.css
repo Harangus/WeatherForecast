@@ -1,0 +1,69 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#wrapper {
+    display: flex;
+    height: 100%;
+    align-items: stretch;
+}
+
+#general {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+#details {
+    flex: 2;
+    padding: 1rem;
+    border: 1px solid red;
+}
+
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.input-wrapper .magnifying-glass-icon {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+#city-input {
+    padding-left: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+}
+
+.autocomplete-wrapper {
+  position: relative;
+}
+
+#suggestions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  display: none;
+}
+
+#suggestions li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#suggestions li:hover {
+  background: #eee;
+}

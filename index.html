@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Weather Forecast</title>
+        <link rel="stylesheet" href="style.css"/>
+        <script src="JavaScript/app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div id="general">
+                <div class="input-wrapper">
+                    <span class="magnifying-glass-icon">🔍</span>
+                    <input id="city-input" placeholder="Find your city" autocomplete="off">
+                    <ul id="suggestions"></ul>
+                </div>
+
+                <div id="weather-app">
+                    <div id="today-panel">
+                        <h2 id="today-date"></h2>
+                        <canvas id="temp-chart" width="600" height="200"></canvas>
+                        <p id="today-desc"></p>
+                        <p id="today-temp"></p>
+                    </div>
+                    <div id="days-list" style="display:flex; gap:5px; margin-top:10px;"></div>
+                </div>
+
+            </div>
+
+            <div id="details">
+                <div><text id=""></text></div>
+            </div>
+        </div>
+    </body>
+</html>
