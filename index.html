@@ -12,27 +12,40 @@
     <body>
         <div id="wrapper">
             <div id="general">
+                <h1 class="header">Weather Forecast</h1>
                 <div class="input-wrapper">
-                    <span class="magnifying-glass-icon">🔍</span>
                     <input id="city-input" placeholder="Find your city" autocomplete="off">
                     <ul id="suggestions"></ul>
                 </div>
 
                 <div id="weather-app">
                     <div id="today-panel">
-                        <h2 id="today-date"></h2>
-                        <canvas id="temp-chart" width="600" height="200"></canvas>
-                        <p id="today-desc"></p>
+                        <span id="today-desc"></span>
+                        <div id="chart-wrapper">
+                            <canvas id="temp-chart" width="600" height="200"></canvas>
+                        </div>
                         <p id="today-temp"></p>
                     </div>
-                    <div id="days-list" style="display:flex; gap:5px; margin-top:10px;"></div>
+                    <div id="days-list"></div>
                 </div>
 
             </div>
 
             <div id="details">
-                <div><text id=""></text></div>
+                <div class="detail"><h3 id="detail-title">Feels like</h3><span id="feels"></span></div>
+                <div class="detail"><h3 id="detail-title">Temperature min.</h3><span id="tmin"></span></div>
+                <div class="detail"><h3 id="detail-title">Temperature max.</h3><span id="tmax"></span></div>
+                <div class="detail"><h3 id="detail-title">Humidity</h3><span id="hum"></span></div>
+                <div class="detail"><h3 id="detail-title">Pressure</h3><span id="pres"></span></div>
+                <div class="detail"><h3 id="detail-title">Wind speed</h3><span id="windS"></span></div>
+                <div class="detail"><h3 id="detail-title">Wind gust</h3><span id="windG"></span></div>
+                <div class="detail"><h3 id="detail-title">Wind deg.</h3><span id="windD"></span></div>
+                <div class="detail"><h3 id="detail-title">Clouds</h3><span id="clouds"></span></div>
+                <div class="detail"><h3 id="detail-title">Visibility</h3><span id="vis"></span></div>
+                <div class="detail"><h3 id="detail-title">Rain</h3><span id="rain3h"></span></div>
+                <div class="detail"><h3 id="detail-title">Snow</h3><span id="snow3h"></span></div>
             </div>
+
         </div>
     </body>
 </html>

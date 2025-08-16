@@ -96,7 +96,6 @@ class WeatherApp {
         const icon = midday.weather[0].icon;
 
         // update top info
-        document.getElementById(this.dateId).innerText = date;
         document.getElementById(this.descId).innerHTML =
             `<img src="http://openweathermap.org/img/wn/${icon}.png" alt="icon"> ${description}`;
         document.getElementById(this.tempId).innerText = `Average temperature: ${avgTemp} °C`;
@@ -118,14 +117,20 @@ class WeatherApp {
         Object.keys(this.dailyData).slice(0,5).forEach(date => {
             const btn = document.createElement('button');
             btn.textContent = date;
-            btn.addEventListener('click', () => this.showDay(date));
+            btn.className = 'day-button';
+            
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.day-button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                this.showDay(date);
+            });
+
             daysList.appendChild(btn);
         });
     }
 
     // show more detailed weather info
     showDetails(dp) {
-        const details = document.getElementById(this.detailsId);
         const windDir = deg => {
             // convert wind degree to compass direction
             const dirs = ['N','NE','E','SE','S','SW','W','NW','N'];
@@ -134,20 +139,26 @@ class WeatherApp {
         const safe = (v, fallback = '—') => (v === undefined || v === null ? fallback : v);
 
         // extract details from forecast object
-        const feels = safe(dp.main?.feels_like);
-        const tmin  = safe(dp.main?.temp_min);
-        const tmax  = safe(dp.main?.temp_max);
-        const hum   = safe(dp.main?.humidity);
-        const pres  = safe(dp.main?.pressure);
-        const windS = safe(dp.wind?.speed);
-        const windG = safe(dp.wind?.gust);
-        const windD = dp.wind?.deg !== undefined ? `${dp.wind.deg}° (${windDir(dp.wind.deg)})` : '—';
-        const clouds = safe(dp.clouds?.all);
-        const vis   = dp.visibility !== undefined ? Math.round(dp.visibility/1000) + ' km' : '—';
-        const rain3h = dp.rain?.['3h'] !== undefined ? `${dp.rain['3h']} mm/3h` : '—';
-        const snow3h = dp.snow?.['3h'] !== undefined ? `${dp.snow['3h']} mm/3h` : '—';
+        const map = {
+            feels:  dp.main?.feels_like !== undefined ? `${dp.main.feels_like} °C`:'—',
+            tmin:   dp.main?.temp_min   !== undefined ? `${dp.main.temp_min} °C`: '—',
+            tmax:   dp.main?.temp_max   !== undefined ? `${dp.main.temp_max} °C`: '—',
+            hum:    dp.main?.humidity   !== undefined ? `${dp.main.humidity} %`:'—',
+            pres:   dp.main?.pressure   !== undefined ? `${dp.main.pressure} hPa`:'—',
+            windS:  dp.wind?.speed      !== undefined ? `${dp.wind.speed} m/s`:'—',
+            windG:  dp.wind?.gust       !== undefined ? `${dp.wind.gust} m/s`:'—',
+            windD:  dp.wind?.deg        !== undefined ? `${dp.wind.deg}° (${windDir(dp.wind.deg)})`:'—',
+            clouds: dp.clouds?.all      !== undefined ? `${dp.clouds.all} %`:'—',
+            vis:    dp.visibility       !== undefined ? `${Math.round(dp.visibility/1000)} km`:'—',
+            rain3h: dp.rain?.['3h']     !== undefined ? `${dp.rain['3h']} mm/3h`:'—',
+            snow3h: dp.snow?.['3h']     !== undefined ? `${dp.snow['3h']} mm/3h`:'—'
+        };
 
         //rendering into DOM
+        for (const [id, value] of Object.entries(map)) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = value;
+        }
     }
 
     // draw temperature chart
@@ -176,7 +187,12 @@ class WeatherApp {
                         }
                     }
                 },
-                scales: { y: { beginAtZero: false } }
+                maintainAspectRatio: false,
+                scales: { 
+                    y: {
+                         beginAtZero: false,
+                    }
+                }
             }
         });
     }
