@@ -10,12 +10,31 @@
     --days-active-bg-color: #f38ba8;
 }
 
+html.light {
+    --bg-color: #eff1f5;
+    --general-bg-color: #bcc0cc;
+    --details-bg-color: #ccd0da;
+    --detail-bg-color: #8839ef;
+    --text-color: #4c4f69;
+    --chart-bg-color: #1e1e2e;
+    --days-bg-color: #e64553;
+    --days-hover-bg-color: #fe640b;
+    --days-active-bg-color: #d20f39;
+}
+
+html {
+    background-color: var(--bg-color);
+}
+
 html,
 body {
     margin: 0;
-    padding: 2rem;
     min-height: 100%;
     box-sizing: border-box;
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    text-align: center;
     background-color: var(--bg-color)
 }
 
@@ -36,7 +55,26 @@ body {
     box-sizing: border-box;
 }
 
+#toggle-theme {
+    all: unset;
+    border-radius: 10px 0 10px 0;
+    padding: 1rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--general-bg-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    box-shadow: 0 0 0 10px var(--bg-color);
+}
+
+#toggle-theme:hover {
+    background-color: var(--details-bg-color);
+    cursor: pointer;
+}
+
 #general {
+    position: relative;
     text-align: center;
     padding: 1rem;
     grid-column: 1;
@@ -187,10 +225,12 @@ body {
 @media (max-width: 1400px) {
     body {
         padding: 0;
+        width: 100%;
     }
     #wrapper {
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
+        width: 100%;
     }
 
     #general,
@@ -201,5 +241,10 @@ body {
     #chart-wrapper {
         width: 80vw;
         height: 40vh;
+    }
+
+    #city-input {
+        width: 80vw;
+        padding: 0.5rem;
     }
 }

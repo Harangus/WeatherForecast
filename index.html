@@ -2,19 +2,17 @@
 
 <html>
     <head>
-        <title>Weather Forecast</title>
+        <title>Předpověď počasí</title>
         <link rel="stylesheet" href="style.css"/>
-        <script src="JavaScript/app.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     </head>
 
     <body>
         <div id="wrapper">
             <div id="general">
-                <h1 class="header">Weather Forecast</h1>
+                <button id="toggle-theme">Přepnout barevné téma</button>
+                <h1 class="header">Předpověď počasí</h1>
                 <div class="input-wrapper">
-                    <input id="city-input" placeholder="Find your city" autocomplete="off">
+                    <input id="city-input" placeholder="Vyhledejte své město" autocomplete="off">
                     <ul id="suggestions"></ul>
                 </div>
 
@@ -32,20 +30,24 @@
             </div>
 
             <div id="details">
-                <div class="detail"><h3 id="detail-title">Feels like</h3><span id="feels"></span></div>
-                <div class="detail"><h3 id="detail-title">Temperature min.</h3><span id="tmin"></span></div>
-                <div class="detail"><h3 id="detail-title">Temperature max.</h3><span id="tmax"></span></div>
-                <div class="detail"><h3 id="detail-title">Humidity</h3><span id="hum"></span></div>
-                <div class="detail"><h3 id="detail-title">Pressure</h3><span id="pres"></span></div>
-                <div class="detail"><h3 id="detail-title">Wind speed</h3><span id="windS"></span></div>
-                <div class="detail"><h3 id="detail-title">Wind gust</h3><span id="windG"></span></div>
-                <div class="detail"><h3 id="detail-title">Wind deg.</h3><span id="windD"></span></div>
-                <div class="detail"><h3 id="detail-title">Clouds</h3><span id="clouds"></span></div>
-                <div class="detail"><h3 id="detail-title">Visibility</h3><span id="vis"></span></div>
-                <div class="detail"><h3 id="detail-title">Rain</h3><span id="rain3h"></span></div>
-                <div class="detail"><h3 id="detail-title">Snow</h3><span id="snow3h"></span></div>
+                <div class="detail"><h3 id="detail-title">Pocitově</h3><span id="feels"></span></div>
+                <div class="detail"><h3 id="detail-title">Teplota min.</h3><span id="tmin"></span></div>
+                <div class="detail"><h3 id="detail-title">Teplota max.</h3><span id="tmax"></span></div>
+                <div class="detail"><h3 id="detail-title">Vlhkost</h3><span id="hum"></span></div>
+                <div class="detail"><h3 id="detail-title">Tlak</h3><span id="pres"></span></div>
+                <div class="detail"><h3 id="detail-title">Rychlost větru</h3><span id="windS"></span></div>
+                <div class="detail"><h3 id="detail-title">Poryv větru</h3><span id="windG"></span></div>
+                <div class="detail"><h3 id="detail-title">Směr větru</h3><span id="windD"></span></div>
+                <div class="detail"><h3 id="detail-title">Mraky</h3><span id="clouds"></span></div>
+                <div class="detail"><h3 id="detail-title">Viditelnost</h3><span id="vis"></span></div>
+                <div class="detail"><h3 id="detail-title">Déšť</h3><span id="rain3h"></span></div>
+                <div class="detail"><h3 id="detail-title">Sníh</h3><span id="snow3h"></span></div>
             </div>
 
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="JavaScript/app.js"></script>
+        <script src="JavaScript/colorMode.js"></script>
     </body>
 </html>
