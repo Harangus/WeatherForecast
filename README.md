@@ -69,5 +69,5 @@ This app uses the OpenWeatherMap API
         - Theme toggling - clicking the button switches between light and dark themes by updating the <html> class
 
 ## 📸 Preview
-![Weather App dark mode](assets/darkMode.png)
-![Weather App light mode](assets/lightMode.png)
+![Weather App dark mode](Assets/darkMode.png)
+![Weather App light mode](Assets/lightMode.png)
