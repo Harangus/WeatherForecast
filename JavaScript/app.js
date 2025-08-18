@@ -1,4 +1,4 @@
-const API_KEY = 'YOUR_API_KEY';  //OpenWeatherMap API key
+const API_KEY = '7836864239393d702c3c6e68a39360aa';  //OpenWeatherMap API key
 
 // Handles city name autocompletion logic
 class Autocomplete {
@@ -255,4 +255,24 @@ fetch('../city.list.json')
     .then(cities => {
         const app = new WeatherApp('temp-chart', 'today-date', 'today-desc', 'today-temp', 'days-list', 'details');
         new Autocomplete('city-input', 'suggestions', (lat, lon) => app.fetchForecast(lat, lon), cities);
+
+        //geolocation button
+        const geoBtn = document.getElementById('geo-btn');
+        geoBtn.addEventListener('click', () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        app.fetchForecast(lat, lon);
+                    },
+                    (err) => {
+                        alert("Nepodařilo se získat vaši polohu");
+                        console.log(err);
+                    }
+                ) 
+            } else {
+                alert("Geolokace není ve vašem prohlížeči podporována");
+            }
+        })
     });

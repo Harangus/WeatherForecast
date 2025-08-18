@@ -55,6 +55,19 @@ body {
     box-sizing: border-box;
 }
 
+#geo-btn {
+    all: unset;
+    padding: 0.5rem;
+    border-radius: 10px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+#geo-btn:hover {
+    cursor: pointer;
+    background-color: var(--details-bg-color);
+}
+
 #toggle-theme {
     all: unset;
     border-radius: 10px 0 10px 0;
@@ -246,5 +259,11 @@ body {
     #city-input {
         width: 80vw;
         padding: 0.5rem;
+    }
+}
+
+@media (max-width: 1110px) {
+    #geo-btn {
+        margin-top: 1rem;
     }
 }

@@ -30,6 +30,12 @@ Users can search for a city using the autocomplete input and view the forecast w
    ```bash
    git clone https://github.com/Harangus/WeatherForecast.git
 
+2. You can run the project using the Live Server VSCode extension, but for geolocation to work properly, run in your console:
+    ```bash
+    npx http-server
+
+3. Open the web page at http://127.0.0.1:8080
+
 ## 🔑 API key
 This app uses the OpenWeatherMap API
 - Register for free at OpenWeatherMap
