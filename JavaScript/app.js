@@ -1,4 +1,4 @@
-const API_KEY = '7836864239393d702c3c6e68a39360aa';  //OpenWeatherMap API key
+const API_KEY = 'YOUR_API_KEY';  //OpenWeatherMap API key
 
 // Handles city name autocompletion logic
 class Autocomplete {
